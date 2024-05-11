@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creating Account</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="navbar">
@@ -20,10 +21,38 @@
             <input type="email" name="email" placeholder="Email" required>
             <input type="text" name="fullname" placeholder="Full Name" required>
             <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="password" name="confirm_password" placeholder="Repeat Password" required>
+            <div class="password-wrapper">
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <i class='far fa-eye-slash' id="togglePassword" style="font-size:24px; cursor:pointer; position: absolute; right: 30px; top: 35%; transform: translateY(-50%);"></i>
+            </div>
+            <div class="password-wrapper">
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Repeat Password" required>
+                <i class='far fa-eye-slash' id="toggleConfirmPassword" style="font-size:24px; cursor:pointer; position: absolute; right: 30px; top: 35%; transform: translateY(-50%);"></i>
+            </div>
             <input type="submit" value="Create Account">
         </form>
     </div>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        function toggleConfirmPasswordVisibility() {
+            var confirmPasswordField = document.getElementById("confirm_password");
+            if (confirmPasswordField.type === "password") {
+                confirmPasswordField.type = "text";
+            } else {
+                confirmPasswordField.type = "password";
+            }
+        }
+
+        document.getElementById("togglePassword").addEventListener("click", togglePasswordVisibility);
+        document.getElementById("toggleConfirmPassword").addEventListener("click", toggleConfirmPasswordVisibility);
+    </script>
 </body>
 </html>

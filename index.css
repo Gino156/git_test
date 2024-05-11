@@ -37,6 +37,16 @@ h2 {
     flex-grow: 1;
 }
 
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input[type="password"] {
+    padding-right: 40px; /* Space for the eye icon */
+}
+
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
