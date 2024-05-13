@@ -11,7 +11,7 @@ body {
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Add space between items */
+    justify-content: space-between;
 }
 
 .bi-arrow-left-circle {
@@ -22,29 +22,16 @@ h1 {
     margin: 0;
 }
 
-
 .container {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
     border-radius: 8px;
-    display:flex;
 }
 
-.password-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.password-wrapper input[type="password"] {
-    padding-right: 40px; /* Space for the eye icon */
-}
-
-
-input[type="text"],
 input[type="email"],
-input[type="password"] {
-    width: calc(100% - 22px);
+input[type="submit"] {
+    width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -53,17 +40,44 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-    width: 95%;
-    padding: 10px;
-    border: none;
-    border-radius: 50px;
     background-color: #d43532;
     color: #fff;
+    border: none;
     cursor: pointer;
-    align-items: center;
-    justify-content: center;
 }
 
 input[type="submit"]:hover {
     background-color: #14a33f;
+}
+
+.footer {
+    background-color: #d43532;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.container-lock {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.container-lock img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.description {
+    text-align: center;
 }
