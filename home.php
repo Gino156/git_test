@@ -49,9 +49,8 @@
             <button><img src="search-icon.png" alt="Search"></button>
             <button><img src="filter-icon.png" alt="Filter"></button>
         </div>
-        <div class="featured-event">
-            <img src="featured-event-placeholder.png" alt="Featured Event">
-            <button class="register-btn">Click here to register</button>
+        <div id="featured-event-container">
+            <!-- Featured event will be dynamically loaded here -->
         </div>
         <div class="tabs">
             <button class="tab">I-Events</button>
@@ -69,6 +68,7 @@
             .then(response => response.json())
             .then(events => {
                 const eventsContainer = document.querySelector('.events');
+                let featuredEvent = events[0];
 
                 // Loop through the events and create event cards
                 events.forEach(event => {
@@ -97,7 +97,32 @@
 
                     // Append event card to events container
                     eventsContainer.appendChild(eventCard);
+
+                    // Determine the event with the furthest date
+                    if (new Date(event.event_date) > new Date(featuredEvent.event_date)) {
+                        featuredEvent = event;
+                    }
                 });
+
+                // Create and insert featured event card
+                const featuredEventContainer = document.getElementById('featured-event-container');
+                const featuredEventCard = document.createElement('div');
+                featuredEventCard.classList.add('featured-event');
+
+                const featuredEventImage = document.createElement('img');
+                featuredEventImage.id = 'featured-event-img';
+                featuredEventImage.src = featuredEvent.event_image;
+                featuredEventImage.alt = featuredEvent.event_name;
+
+                const registerButton = document.createElement('button');
+                registerButton.classList.add('register-btn');
+                registerButton.textContent = 'Click here to register';
+                registerButton.href = '#'; // Link to the featured event registration
+
+                featuredEventCard.appendChild(featuredEventImage);
+                featuredEventCard.appendChild(registerButton);
+
+                featuredEventContainer.appendChild(featuredEventCard);
             })
             .catch(error => console.error('Error fetching events:', error));
     </script>
