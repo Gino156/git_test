@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMARTBRGY.ph</title>
     <link rel="stylesheet" href="home.css">
 </head>
+
 <body>
     <div class="sidebar">
         <div class="profile">
@@ -57,50 +59,48 @@
             <button class="tab">I-Documents</button>
         </div>
         <div class="events">
-            <div class="event-card">
-                <img src="event1-placeholder.png" alt="Event 1">
-                <div class="event-info">
-                    <h3>Free Dental Cleaning</h3>
-                    <a href="#">register here</a>
-                </div>
-            </div>
-            <div class="event-card">
-                <img src="event2-placeholder.png" alt="Event 2">
-                <div class="event-info">
-                    <h3>KKDAT (Kebaton Kontra Droga at Terorismo Seminar)</h3>
-                    <a href="#">register here</a>
-                </div>
-            </div>
-            <div class="event-card">
-                <img src="event3-placeholder.png" alt="Event 3">
-                <div class="event-info">
-                    <h3>Means of Escape (Fire Safety and Prevention)</h3>
-                    <a href="#">register here</a>
-                </div>
-            </div>
-            <div class="event-card">
-                <img src="event4-placeholder.png" alt="Event 4">
-                <div class="event-info">
-                    <h3>Drop, Cover and Hold! Earthquake Preparedness</h3>
-                    <a href="#">register here</a>
-                </div>
-            </div>
-            <div class="event-card">
-                <img src="event5-placeholder.png" alt="Event 5">
-                <div class="event-info">
-                    <h3>Youth are Ready: Providing Free First Aid Kit</h3>
-                    <a href="#">register here</a>
-                </div>
-            </div>
-            <div class="event-card">
-                <img src="event6-placeholder.png" alt="Event 6">
-                <div class="event-info">
-                    <h3>Basic Self Defense Training</h3>
-                    <a href="#">register here</a>
-                </div>
-            </div>
+            <!-- Event cards will be dynamically loaded here -->
         </div>
     </div>
     <script src="home.js"></script>
+    <script>
+        // Fetch events from the server
+        fetch('fetch_events.php')
+            .then(response => response.json())
+            .then(events => {
+                const eventsContainer = document.querySelector('.events');
+
+                // Loop through the events and create event cards
+                events.forEach(event => {
+                    const eventCard = document.createElement('div');
+                    eventCard.classList.add('event-card');
+
+                    const eventImage = document.createElement('img');
+                    eventImage.src = event.event_image;
+                    eventImage.alt = event.event_name;
+
+                    const eventInfo = document.createElement('div');
+                    eventInfo.classList.add('event-info');
+
+                    const eventName = document.createElement('h3');
+                    eventName.textContent = event.event_name;
+
+                    const registerLink = document.createElement('a');
+                    registerLink.href = '#';
+                    registerLink.textContent = 'Register here';
+
+                    // Append elements to event card
+                    eventInfo.appendChild(eventName);
+                    eventInfo.appendChild(registerLink);
+                    eventCard.appendChild(eventImage);
+                    eventCard.appendChild(eventInfo);
+
+                    // Append event card to events container
+                    eventsContainer.appendChild(eventCard);
+                });
+            })
+            .catch(error => console.error('Error fetching events:', error));
+    </script>
 </body>
+
 </html>

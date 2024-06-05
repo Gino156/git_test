@@ -10,10 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO users (email, fullname, username, password) VALUES ('$email', '$fullname', '$username', '$password')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        // Close the database connection
+        $conn->close();
+
+        // Redirect to login.php
+        header("Location: login.php");
+        exit(); // Make sure to exit after redirection
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
-    $conn->close();
 }
