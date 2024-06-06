@@ -23,7 +23,7 @@
         <nav>
             <ul>
                 <li><a href="#">Dashboard</a></li>
-                <li><a href="manage-events.html">Manage Events</a></li>
+                <li><a href="manage-events.php">Manage Events</a></li>
                 <li><a href="inbox.html">Inbox</a></li>
                 <li><a href="#">Log out</a></li>
             </ul>
@@ -67,7 +67,7 @@
             <!-- Events will be dynamically loaded here -->
         </div>
     </div>
-    <script src="adminhomes.js"></script>
+    <script src="adminhome.js"></script>
 </body>
 
 </html>

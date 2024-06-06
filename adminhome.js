@@ -24,4 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 eventsContainer.appendChild(eventCard);
             });
         });
+
+    // Menu toggle functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        sidebar.classList.toggle('active');
+        content.classList.toggle('active');
+    });
 });
