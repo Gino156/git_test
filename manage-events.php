@@ -81,7 +81,7 @@
             ?>
         </div>
     </div>
-    <script src="adminhomes.js"></script>
+    <script src="adminhome.js"></script>
 </body>
 
 </html>

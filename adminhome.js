@@ -1,4 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
+
+    menuToggle.addEventListener('click', function () {
+        menuToggle.classList.toggle('active');
+        sidebar.classList.toggle('active');
+        content.classList.toggle('active');
+    });
+
     const addEventForm = document.getElementById('addEventForm');
 
     addEventForm.addEventListener('submit', (e) => {
@@ -23,16 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 eventsContainer.appendChild(eventCard);
             });
-        });
-
-    // Menu toggle functionality
-    const menuToggle = document.querySelector('.menu-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    const content = document.querySelector('.content');
-
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        sidebar.classList.toggle('active');
-        content.classList.toggle('active');
-    });
+        })
+        .catch(error => console.error('Error fetching events:', error));
 });

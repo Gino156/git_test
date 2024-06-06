@@ -55,7 +55,7 @@
         <div class="tabs">
             <button class="tab">I-Events</button>
             <button class="tab">I-HANDA</button>
-            <button class="tab">I-Documents</button>
+            <button id="iDocumentsButton" class="tab">I-Documents</button>
         </div>
         <div class="events">
             <!-- Event cards will be dynamically loaded here -->
@@ -125,6 +125,10 @@
                 featuredEventContainer.appendChild(featuredEventCard);
             })
             .catch(error => console.error('Error fetching events:', error));
+
+        document.getElementById("iDocumentsButton").addEventListener("click", function() {
+            window.location.href = "requestdocuments.php";
+        });
     </script>
 </body>
 

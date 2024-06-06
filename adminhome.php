@@ -63,9 +63,6 @@
                 <button type="submit">Add Event</button>
             </form>
         </div>
-        <div class="events">
-            <!-- Events will be dynamically loaded here -->
-        </div>
     </div>
     <script src="adminhome.js"></script>
 </body>
