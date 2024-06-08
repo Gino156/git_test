@@ -7,126 +7,65 @@
     <title>Request Documents</title>
     <link rel="stylesheet" href="adminhome.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-
         .container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 600px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
             text-align: center;
-            margin-bottom: 20px;
-            color: #333;
+            position: relative;
         }
 
         .document-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            margin-bottom: 20px;
         }
 
         .document-buttons button {
-            margin: 10px;
-            padding: 10px 20px;
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
             font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: #fff;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .document-buttons button:hover {
-            background-color: #0056b3;
         }
 
         .form-container {
             display: none;
             margin-top: 20px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
+            text-align: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
             padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .form-group label {
-            font-weight: bold;
             display: block;
             margin-bottom: 5px;
         }
 
         .form-group input {
-            width: calc(100% - 12px);
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-
-        .submit-btn {
-            display: block;
             width: 100%;
-            padding: 10px 0;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            padding: 8px;
+            box-sizing: border-box;
         }
 
-        .submit-btn:hover {
-            background-color: #0056b3;
+        .status {
+            margin-top: 20px;
         }
 
         .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 20px;
             cursor: pointer;
-        }
-
-        .status {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .back-btn {
-            display: block;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .back-btn a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .back-btn a:hover {
-            color: #0056b3;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -182,7 +121,6 @@
                 </div>
                 <button type="submit">Submit Request</button>
             </form>
-            <!-- Close button -->
             <span class="close-btn" onclick="closeForm()">×</span>
         </div>
 
@@ -227,7 +165,6 @@
                 </div>
                 <button type="submit">Submit Request</button>
             </form>
-            <!-- Close button -->
             <span class="close-btn" onclick="closeForm()">×</span>
         </div>
 
@@ -272,7 +209,6 @@
                 </div>
                 <button type="submit">Submit Request</button>
             </form>
-            <!-- Close button -->
             <span class="close-btn" onclick="closeForm()">×</span>
         </div>
 
@@ -317,15 +253,11 @@
                 </div>
                 <button type="submit">Submit Request</button>
             </form>
-            <!-- Close button -->
             <span class="close-btn" onclick="closeForm()">×</span>
         </div>
 
-        <!-- Other form containers -->
-
         <div class="status">
             <h2>Document Request Status</h2>
-            <!-- This section can be dynamically populated with the status of requested documents -->
             <p>No documents requested yet.</p>
         </div>
     </div>
@@ -336,24 +268,30 @@
 
     <script>
         function showForm(formId) {
-            // Hide all form containers
             const formContainers = document.querySelectorAll('.form-container');
             formContainers.forEach(container => {
                 container.style.display = 'none';
             });
-
-            // Show the selected form container
             document.getElementById(formId).style.display = 'block';
         }
 
-        // Function to close the form
         function closeForm() {
-            // Hide all form containers
             const formContainers = document.querySelectorAll('.form-container');
             formContainers.forEach(container => {
                 container.style.display = 'none';
             });
         }
+
+        // Check URL parameters and show alert based on status
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            if (status === 'accepted') {
+                alert('Request Accepted');
+            } else if (status === 'declined') {
+                alert('Request Declined');
+            }
+        };
     </script>
 </body>
 
