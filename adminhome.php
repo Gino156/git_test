@@ -24,7 +24,7 @@
             <ul>
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="manage-events.php">Manage Events</a></li>
-                <li><a href="inbox.html">Inbox</a></li>
+                <li><a href="admininbox.php">Inbox</a></li>
                 <li><a href="#">Log out</a></li>
             </ul>
         </nav>

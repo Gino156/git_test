@@ -59,7 +59,7 @@
 
 <body>
     <div class="container">
-        <h1>Request New Document(Brgy Indigency)</h1>
+        <h1>Request New Document(Brgy Clearance)</h1>
         <div class="status">
             <?php
             $servername = "localhost";
@@ -86,7 +86,7 @@
                 $phone = $_POST['phone'];
                 $citizenship = $_POST['citizenship'];
 
-                $stmt = $conn->prepare("INSERT INTO indigency_request (lastName, firstName, middleName, address, street, birthday, age, phone, citizenship) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO clearance_request (lastName, firstName, middleName, address, street, birthday, age, phone, citizenship) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("ssssssiss", $lastName, $firstName, $middleName, $address, $street, $birthday, $age, $phone, $citizenship);
 
                 if ($stmt->execute()) {

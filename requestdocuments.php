@@ -226,7 +226,7 @@
 
         <div class="form-container" id="soloParentForm">
             <h2>Solo Parent Form</h2>
-            <form action="solo_parent.php" method="post">
+            <form action="soloparent_request.php" method="post">
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="lastName" required>
