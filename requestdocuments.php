@@ -7,74 +7,126 @@
     <title>Request Documents</title>
     <link rel="stylesheet" href="adminhome.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
             text-align: center;
-            position: relative;
-            /* Added */
+            margin-bottom: 20px;
+            color: #333;
         }
 
         .document-buttons {
-            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .document-buttons button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
+            margin: 10px;
+            padding: 10px 20px;
             font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .document-buttons button:hover {
+            background-color: #0056b3;
         }
 
         .form-container {
             display: none;
             margin-top: 20px;
-            text-align: left;
-            position: absolute;
-            /* Added */
-            top: 0;
-            /* Added */
-            left: 0;
-            /* Added */
-            width: 100%;
-            /* Added */
-            background-color: #fff;
-            /* Added */
+            background-color: #f9f9f9;
+            border-radius: 5px;
             padding: 20px;
-            /* Added */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* Added */
         }
 
         .form-group {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
+            font-weight: bold;
             display: block;
             margin-bottom: 5px;
         }
 
         .form-group input {
-            width: 100%;
+            width: calc(100% - 12px);
             padding: 8px;
-            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: border-color 0.3s ease;
         }
 
-        .status {
-            margin-top: 20px;
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff;
         }
 
-        /* Close button styles */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
         .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            cursor: pointer;
             font-size: 20px;
+            cursor: pointer;
+        }
+
+        .status {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-btn {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-btn a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn a:hover {
+            color: #0056b3;
         }
     </style>
 </head>
@@ -276,6 +328,10 @@
             <!-- This section can be dynamically populated with the status of requested documents -->
             <p>No documents requested yet.</p>
         </div>
+    </div>
+
+    <div class="back-btn">
+        <a href="home.php">Back to Home</a>
     </div>
 
     <script>

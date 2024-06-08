@@ -24,8 +24,8 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="myaccount.html">My account</a></li>
-                <li><a href="inbox.html">Inbox</a></li>
+                <li><a href="myaccount.php">My account</a></li>
+                <li><a href="inbox.php">Inbox</a></li>
                 <li><a href="#">All Transactions</a></li>
                 <li><a href="#">Tickets</a></li>
                 <li><a href="#">Log out</a></li>

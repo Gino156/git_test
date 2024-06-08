@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inbox - SMARTBRGY.ph</title>
     <link rel="stylesheet" href="inbox.css">
 </head>
+
 <body>
     <div class="sidebar">
         <div class="profile">
@@ -21,9 +23,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="myaccount.html">My Account</a></li>
-                <li><a href="inbox.html">Inbox</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="myaccount.php">My Account</a></li>
+                <li><a href="inbox.php">Inbox</a></li>
                 <li><a href="#">All Transactions</a></li>
                 <li><a href="#">Tickets</a></li>
                 <li><a href="#">Log Out</a></li>
@@ -64,4 +66,5 @@
     </div>
     <script src="home.js"></script>
 </body>
+
 </html>

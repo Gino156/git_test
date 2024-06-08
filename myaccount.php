@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account - SMARTBRGY.ph</title>
     <link rel="stylesheet" href="myaccount.css">
 </head>
+
 <body>
     <div class="sidebar">
         <div class="profile">
@@ -21,12 +23,12 @@
         </div>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="myaccount.html">My account</a></li>
-                <li><a href="inbox.html">Inbox</a></li>
-                <li><a href="transaction.html">All Transactions</a></li>
-                <li><a href="tickets.html">Tickets</a></li>
-                <li><a href="index.html">Log out</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="myaccount.php">My account</a></li>
+                <li><a href="inbox.php">Inbox</a></li>
+                <li><a href="transaction.php">All Transactions</a></li>
+                <li><a href="tickets.php">Tickets</a></li>
+                <li><a href="index.php">Log out</a></li>
             </ul>
         </nav>
     </div>
@@ -126,4 +128,5 @@
     </div>
     <script src="home.js"></script>
 </body>
+
 </html>
