@@ -1,26 +1,16 @@
 <?php
-// Start the session at the very beginning of the script
 session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    die("User not logged in");
+    // If not logged in, redirect to index.php or login page
+    header("Location: index.php");
+    exit();
 }
 
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "brgyuser";
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch all requests for the current user
-$userId = $_SESSION['user_id']; // Adjust this according to your session management
+// Database connection and other necessary operations
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,7 +96,6 @@ $userId = $_SESSION['user_id']; // Adjust this according to your session managem
         <div class="form-container" id="indigencyForm">
             <h2>Barangay Indigency Form</h2>
             <form action="barangay_indigency.php" method="post">
-                <!-- Form fields for Barangay Indigency Form -->
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="lastName" required>
@@ -151,7 +140,6 @@ $userId = $_SESSION['user_id']; // Adjust this according to your session managem
         <div class="form-container" id="clearanceForm">
             <h2>Barangay Clearance Form</h2>
             <form action="barangay_clearance.php" method="post">
-                <!-- Form fields for Barangay Clearance Form -->
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="lastName" required>
@@ -196,7 +184,6 @@ $userId = $_SESSION['user_id']; // Adjust this according to your session managem
         <div class="form-container" id="residencyForm">
             <h2>Barangay Residency Form</h2>
             <form action="barangay_residency.php" method="post">
-                <!-- Form fields for Barangay Residency Form -->
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="lastName" required>
@@ -240,8 +227,7 @@ $userId = $_SESSION['user_id']; // Adjust this according to your session managem
 
         <div class="form-container" id="soloParentForm">
             <h2>Solo Parent Form</h2>
-            <form action="solo_parent.php" method="post">
-                <!-- Form fields for Solo Parent Form -->
+            <form action="soloparent_request.php" method="post">
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="lastName" required>
@@ -285,63 +271,7 @@ $userId = $_SESSION['user_id']; // Adjust this according to your session managem
 
         <div class="status">
             <h2>Document Request Status</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    // Database connection
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "brgyuser";
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-
-                    // Fetch all requests for the current user (assuming a session variable holds user ID)
-                    session_start();
-                    $userId = $_SESSION['user_id']; // Adjust this according to your session management
-
-                    $requests = [
-                        'indigency' => 'indigency_request',
-                        'clearance' => 'clearance_request',
-                        'residency' => 'residency_request',
-                        'solo parent' => 'soloparent_request',
-                    ];
-
-                    foreach ($requests as $type => $table) {
-                        $sql = "SELECT id, status FROM $table WHERE user_id = '$userId'";
-                        $result = $conn->query($sql);
-
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $status = $row['status'] ? $row['status'] : 'Pending';
-                                echo "
-                                    <tr>
-                                        <td>{$row['id']}</td>
-                                        <td>" . ucfirst($type) . "</td>
-                                        <td>{$status}</td>
-                                        <td><a href='view_request.php?type=$type&id={$row['id']}'>View</a></td>
-                                    </tr>";
-                            }
-                        } else {
-                            echo "<tr><td colspan='4'>No $type requests found</td></tr>";
-                        }
-                    }
-
-                    $conn->close();
-                    ?>
-                </tbody>
-            </table>
+            <p>No documents requested yet.</p>
         </div>
     </div>
 
